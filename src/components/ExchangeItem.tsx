@@ -8,10 +8,7 @@ interface ExchangeItemProps {
 const ExchangeItem = ({ exchange }: ExchangeItemProps) => {
   return (
     <li className="flex flex-col justify-between text-center relative w-full shadow-md rounded-md border p-4">
-      <Link
-        href={`/exchanges/${exchange.id}`}
-        className="block mb-2 hover:border-0"
-      >
+      <Link href={`/exchanges/${exchange.id}`} className="block mb-2">
         <img
           src={exchange.image}
           alt={exchange.name}
@@ -30,7 +27,12 @@ const ExchangeItem = ({ exchange }: ExchangeItemProps) => {
           <strong>{exchange.trust_score}</strong>
         </p>
       </div>
-      <a href={exchange.url} className="font-bold text-sm inline-block mt-1">
+      <a
+        href={exchange.url}
+        target="_blank"
+        className="font-bold text-sm inline-block mt-1"
+        rel="noreferrer"
+      >
         website ↗
       </a>
     </li>

@@ -7,10 +7,7 @@ const Navbar = () => {
     <header className="py-5 border-b border-gray-300">
       <div className="container">
         <h1 className="">
-          <Link
-            href="/"
-            className="border-none text-gray-900 hover:text-gray-700"
-          >
+          <Link href="/" className="text-gray-900 hover:text-gray-700">
             {AppConfig.title}
           </Link>
         </h1>
