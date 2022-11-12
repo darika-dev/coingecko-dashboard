@@ -2,7 +2,8 @@ import { createSlice } from '@reduxjs/toolkit';
 import { HYDRATE } from 'next-redux-wrapper';
 import type { AnyAction } from 'redux';
 
-import type { ExchangesRootState } from '../interfaces/exchanges.interface';
+import type { ExchangesRootState } from '@/interfaces/exchanges.interface';
+
 import type { AppState } from './store';
 
 // Initial state

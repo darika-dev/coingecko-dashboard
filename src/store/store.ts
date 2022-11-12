@@ -2,12 +2,14 @@ import type { Action, ThunkAction } from '@reduxjs/toolkit';
 import { configureStore } from '@reduxjs/toolkit';
 import { createWrapper } from 'next-redux-wrapper';
 
+import { currentExchangeSlice } from './currentExchangeSlice';
 import { exchangesSlice } from './exchangesSlice';
 
 const makeStore = () =>
   configureStore({
     reducer: {
       [exchangesSlice.name]: exchangesSlice.reducer,
+      [currentExchangeSlice.name]: currentExchangeSlice.reducer,
     },
     devTools: true,
   });

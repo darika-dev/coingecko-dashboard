@@ -1,6 +1,6 @@
 import Link from 'next/link';
 
-import type { Exchange } from '../interfaces/exchanges.interface';
+import type { Exchange } from '@/interfaces/exchanges.interface';
 
 interface ExchangeItemProps {
   exchange: Exchange;
