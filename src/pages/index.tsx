@@ -35,7 +35,9 @@ const Index: NextPage = () => {
   }
 
   useEffect(() => {
-    fetchExchanges();
+    if (!exchangesState.length) {
+      fetchExchanges();
+    }
   }, []);
 
   return (
@@ -49,11 +51,19 @@ const Index: NextPage = () => {
     >
       <h2 className="text-2xl font-bold">Top 10 Exchanges</h2>
       <div className="mt-6">
-        {exchangesLoading && <p>Loading</p>}
-        {exchangesError && <p>{exchangesError}</p>}
-        <div>
-          {exchangesState.length && <ExchangeList items={exchangesState} />}
-        </div>
+        {exchangesLoading && (
+          <p className="text-gray-600">
+            <strong>Loading</strong>
+          </p>
+        )}
+        {exchangesError && (
+          <p className="text-red-500">
+            <strong>{exchangesError}</strong>
+          </p>
+        )}
+        {!exchangesLoading && !exchangesError && exchangesState.length && (
+          <ExchangeList exchanges={exchangesState} />
+        )}
       </div>
     </Main>
   );
