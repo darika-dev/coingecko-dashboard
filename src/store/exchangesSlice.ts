@@ -2,18 +2,12 @@ import { createSlice } from '@reduxjs/toolkit';
 import { HYDRATE } from 'next-redux-wrapper';
 import type { AnyAction } from 'redux';
 
+import type { ExchangesRootState } from '../interfaces/exchanges.interface';
 import type { AppState } from './store';
 
-// Type for our state
-export interface ExchangesState {
-  exchangesState: any;
-  isLoading: boolean;
-  isError: boolean;
-}
-
 // Initial state
-const initialState: ExchangesState = {
-  exchangesState: [],
+const initialState: ExchangesRootState = {
+  exchanges: [],
   isLoading: false,
   isError: false,
 };
@@ -25,7 +19,7 @@ export const exchangesSlice = createSlice({
   reducers: {
     // Actions
     setExchangesState(state, action: AnyAction) {
-      state.exchangesState = action.payload;
+      state.exchanges = action.payload;
     },
     setExchangesLoading(state, action: AnyAction) {
       state.isLoading = action.payload;
@@ -50,7 +44,7 @@ export const { setExchangesState, setExchangesLoading, setExchangesError } =
   exchangesSlice.actions;
 
 export const selectExchangesState = (state: AppState) =>
-  state.exchanges.exchangesState;
+  state.exchanges.exchanges;
 export const selectExchangesError = (state: AppState) =>
   state.exchanges.isError;
 export const selectExchangesLoading = (state: AppState) =>

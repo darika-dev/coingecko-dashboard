@@ -27,7 +27,6 @@ const Index: NextPage = () => {
     try {
       const { data } = await CoinGeckoClient.get('/exchanges?per_page=10');
       dispatch(setExchangesState(data));
-      console.log('data', data);
       dispatch(setExchangesLoading(false));
     } catch (e) {
       dispatch(setExchangesError(e.message));
